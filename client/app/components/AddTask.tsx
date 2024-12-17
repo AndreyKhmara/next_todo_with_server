@@ -1,8 +1,12 @@
+import { AiOutlinePlus } from "react-icons/ai";
+
 export const AddTask = () => {
-  // todo ammend commit stop at 9:20
   return (
     <div>
-      <button>add new task</button>
+      <button className="btn btn-primary w-full">
+        Add new task
+        <AiOutlinePlus size={18} className="ml-2" />
+      </button>
     </div>
   );
 };
