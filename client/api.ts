@@ -8,3 +8,14 @@ export const getAllTodos = async (): Promise<ITask[]> => {
   console.log("todos from", todos);
   return todos;
 };
+
+export const addNewTodo = async (todo: ITask): Promise<ITask> => {
+  const res = await fetch(`${baseUrl}/tasks`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(todo),
+  });
+
+  const newTodo = await res.json();
+  return newTodo;
+};

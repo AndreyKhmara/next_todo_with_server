@@ -2,6 +2,7 @@ import { ITask } from "@/typse/tasks";
 interface ITodoListProps {
   tasks: ITask[];
 }
+import { Task } from "./Task";
 
 //todo stop on 22
 // at first start mock server (npm run json-server)
@@ -17,11 +18,8 @@ export const TodoList: React.FC<ITodoListProps> = ({ tasks }) => {
             </tr>
           </thead>
           <tbody>
-            {tasks.map((tasks) => (
-              <tr key={tasks.id}>
-                <td>{tasks.text}</td>
-                <td>{tasks.text}</td>
-              </tr>
+            {tasks.map((task) => (
+              <Task key={task.id} task={task} />
             ))}
           </tbody>
         </table>
