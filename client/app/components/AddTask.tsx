@@ -4,6 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { TaskModal } from "@/app/components/TaskModal";
 import { useState } from "react";
 import { addNewTodo } from "@/api";
+import { v4 as uuidv4 } from "uuid";
 
 export const AddTask = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -11,7 +12,7 @@ export const AddTask = () => {
 
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await addNewTodo({ id: "3", text: newTextValue });
+    await addNewTodo({ id: uuidv4(), text: newTextValue });
     setNewTextValue("");
   };
 
