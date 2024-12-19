@@ -9,20 +9,16 @@
       "text": "went to party"
     },
     {
-      "id": "3",
+      "id": "asdf",
       "text": "go to kill"
     },
     {
-      "id": "3",
-      "text": "add"
+      "id": "3b1643ce-3976-4162-a503-f43572c48181",
+      "text": "test no_store"
     },
     {
-      "id": "ecfc448c-c70e-4ceb-bde9-0c231167599a",
-      "text": "test uuid"
-    },
-    {
-      "id": "5aa7b478-0bfb-4f96-88ba-dd456a67ec73",
-      "text": "test"
+      "id": "3a041a23-0cb0-483a-aab7-02edf3ca2b09",
+      "text": "test_refresh"
     }
   ]
 }
