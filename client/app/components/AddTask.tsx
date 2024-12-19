@@ -5,8 +5,11 @@ import { TaskModal } from "@/app/components/TaskModal";
 import { useState } from "react";
 import { addNewTodo } from "@/api";
 import { v4 as uuidv4 } from "uuid";
+import { useRouter } from "next/navigation";
 
 export const AddTask = () => {
+  //todo check on new branch
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTextValue, setNewTextValue] = useState<string>("");
 
@@ -14,6 +17,8 @@ export const AddTask = () => {
     e.preventDefault();
     await addNewTodo({ id: uuidv4(), text: newTextValue });
     setNewTextValue("");
+    setModalOpen(false);
+    router.refresh();
   };
 
   return (
