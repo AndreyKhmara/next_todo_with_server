@@ -8,17 +8,18 @@ import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 
 export const AddTask = () => {
-  //todo check on new branch
-  const router = useRouter();
+  const router = useRouter(); //need to refesh todo list after add todo
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTextValue, setNewTextValue] = useState<string>("");
 
-  const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
+  const handleSubmitNewTodo: React.FormEventHandler<HTMLFormElement> = async (
+    e,
+  ) => {
     e.preventDefault();
     await addNewTodo({ id: uuidv4(), text: newTextValue });
     setNewTextValue("");
     setModalOpen(false);
-    router.refresh();
+    router.refresh(); //need to refesh todo list after add todo
   };
 
   return (
