@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": "1",
-      "text": "buy milk"
+      "text": "buy milk now 3"
     },
     {
       "id": "2",
@@ -15,10 +15,6 @@
     {
       "id": "3b1643ce-3976-4162-a503-f43572c48181",
       "text": "test no_store"
-    },
-    {
-      "id": "3a041a23-0cb0-483a-aab7-02edf3ca2b09",
-      "text": "test_refresh"
     }
   ]
 }
