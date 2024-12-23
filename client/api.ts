@@ -20,8 +20,8 @@ export const addNewTodo = async (todo: ITask): Promise<ITask> => {
 };
 
 export const editTodo = async (todo: ITask): Promise<ITask> => {
-  const res = await fetch(`${baseUrl}/tasks/${todo.id}`, {
-    method: "PUT",
+  const res = await fetch(`${baseUrl}/tasks/update/${todo.id}`, {
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(todo),
   });
