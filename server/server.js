@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-const todoRouter = require('./routes/todoRouter');
+const todoRouter = require('./routes/taskRouter');
 require('dotenv').config();
 
 const app = express();
@@ -26,5 +26,5 @@ app.use(session({
     httpOnly: true,
   },
 }));
-app.use('/todo', todoRouter);
+app.use('/tasks', todoRouter);
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

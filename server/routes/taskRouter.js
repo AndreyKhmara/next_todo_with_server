@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const allTodo = await Todo.findAll();
-  // console.log(allTodo);
+  console.log('allTodo:', allTodo);
   res.json(allTodo);
 });
 
