@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const allTodo = await Task.findAll();
-  console.log('allTodo:', allTodo);
   res.json(allTodo);
 });
 
@@ -17,10 +16,19 @@ router.post('/add', async (req, res) => {
 });
 
 router.delete('/delete/:id', async (req, res) => {
-  console.log('reqparams:', req.params);
   const { id } = req.params;
   await Task.destroy({ where: { id } });
   res.sendStatus(200);
+});
+
+router.patch('/update/:id', async (req, res) => {
+  const { id } = req.params;
+  const { text } = req.body;
+
+  await Task.update({ text }, { where: { id } });
+  // todo add try catch
+  const updatedTodo = await Task.findOne({ where: { id } });
+  res.json(updatedTodo);
 });
 
 module.exports = router;
