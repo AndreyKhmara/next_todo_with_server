@@ -5,12 +5,11 @@ const baseUrl = "http://localhost:3001";
 export const getAllTodos = async (): Promise<ITask[]> => {
   const res = await fetch(`${baseUrl}/tasks`, { cache: "no-store" });
   const todos = await res.json();
-  console.log("todos from", todos);
   return todos;
 };
 
 export const addNewTodo = async (todo: ITask): Promise<ITask> => {
-  const res = await fetch(`${baseUrl}/tasks`, {
+  const res = await fetch(`${baseUrl}/tasks/add`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(todo),
@@ -32,7 +31,7 @@ export const editTodo = async (todo: ITask): Promise<ITask> => {
 };
 
 export const deleteTodo = async (id: string): Promise<void> => {
-  await fetch(`${baseUrl}/tasks/${id}`, {
+  await fetch(`${baseUrl}/tasks/delete/${id}`, {
     method: "DELETE",
   });
 };
