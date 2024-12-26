@@ -25,10 +25,13 @@ router.patch('/update/:id', async (req, res) => {
   const { id } = req.params;
   const { text } = req.body;
 
-  await Task.update({ text }, { where: { id } });
-  // todo add try catch
-  const updatedTodo = await Task.findOne({ where: { id } });
-  res.json(updatedTodo);
+  try {
+    await Task.update({ text }, { where: { id } });
+    const updatedTodo = await Task.findOne({ where: { id } });
+    res.json(updatedTodo);
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 module.exports = router;
