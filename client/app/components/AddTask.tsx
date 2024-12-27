@@ -16,7 +16,7 @@ export const AddTask = () => {
     e,
   ) => {
     e.preventDefault();
-    await addNewTodo({ id: uuidv4(), text: newTextValue });
+    await addNewTodo({ id: uuidv4(), text: newTextValue, isdone: false });
     setNewTextValue("");
     setModalOpen(false);
     router.refresh(); //need to refesh todo list after add todo
