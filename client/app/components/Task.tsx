@@ -37,7 +37,7 @@ export const Task: React.FC<TaskProps> = ({ task }) => {
     <tr key={task.id}>
       <td className="w-full ">
         <div className="flex gap-5 items-center">
-          <CheckBoxTask isdone={task?.isdone} id={task.id} />
+          <CheckBoxTask isdone={task.isdone} id={task.id} />
           {task.text}
         </div>
       </td>
