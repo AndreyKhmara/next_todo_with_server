@@ -6,6 +6,7 @@ import { useState } from "react";
 import { deleteTodo, editTodo } from "@/api";
 
 import { useRouter } from "next/navigation";
+import { CheckBoxTask } from "@/app/components/CheckBoxTask";
 
 interface TaskProps {
   task: ITask;
@@ -21,7 +22,7 @@ export const Task: React.FC<TaskProps> = ({ task }) => {
     e,
   ) => {
     e.preventDefault();
-    await editTodo({ id: task.id, text: taskToEdit });
+    await editTodo({ id: task.id, text: taskToEdit, isdone: false });
     setOpenModalEdit(false);
     router.refresh(); //need to refesh todo list after add todo
   };
@@ -34,7 +35,12 @@ export const Task: React.FC<TaskProps> = ({ task }) => {
 
   return (
     <tr key={task.id}>
-      <td className="w-full">{task.text}</td>
+      <td className="w-full ">
+        <div className="flex gap-5 items-center">
+          <CheckBoxTask isdone={task?.isdone} id={task.id} />
+          {task.text}
+        </div>
+      </td>
       <td className="flex gap-5">
         <FiEdit
           onClick={() => setOpenModalEdit(true)}

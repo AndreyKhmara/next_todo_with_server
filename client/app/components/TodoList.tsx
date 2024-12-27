@@ -4,8 +4,6 @@ interface ITodoListProps {
 }
 import { Task } from "./Task";
 
-//todo stop on 22
-// at first start mock server (npm run json-server)
 export const TodoList: React.FC<ITodoListProps> = ({ tasks }) => {
   return (
     <div>
