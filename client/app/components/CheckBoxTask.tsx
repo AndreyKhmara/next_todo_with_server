@@ -13,8 +13,8 @@ export const CheckBoxTask: React.FC<IProps> = ({ isdone, id }) => {
   const router = useRouter(); //need to refesh todo list after add todo
 
   const handleCheckTodo = async () => {
-    setChecked(!checked);
     await checkTodo({ id, isdone: checked });
+    setChecked(!checked);
     router.refresh();
   };
 
@@ -22,7 +22,7 @@ export const CheckBoxTask: React.FC<IProps> = ({ isdone, id }) => {
     <div className="form-control">
       <label className="label cursor-pointer">
         <input
-          checked={checked}
+          checked={isdone}
           onChange={handleCheckTodo}
           type="checkbox"
           className="checkbox checkbox-primary"
