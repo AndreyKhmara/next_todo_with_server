@@ -5,15 +5,15 @@ import { useRouter } from "next/navigation";
 
 interface IProps {
   id: string;
-  isdone: boolean;
+  isCompleted: boolean;
 }
 
-export const CheckBoxTask: React.FC<IProps> = ({ isdone, id }) => {
-  const [checked, setChecked] = useState<boolean>(isdone);
+export const CheckBoxTask: React.FC<IProps> = ({ isCompleted, id }) => {
+  const [checked, setChecked] = useState<boolean>(isCompleted);
   const router = useRouter(); //need to refesh todo list after add todo
 
   const handleCheckTodo = async () => {
-    await checkTodo({ id, isdone: checked });
+    await checkTodo({ id, isCompleted: checked });
     setChecked(!checked);
     router.refresh();
   };
@@ -22,7 +22,7 @@ export const CheckBoxTask: React.FC<IProps> = ({ isdone, id }) => {
     <div className="form-control">
       <label className="label cursor-pointer">
         <input
-          checked={isdone}
+          checked={isCompleted}
           onChange={handleCheckTodo}
           type="checkbox"
           className="checkbox checkbox-primary"

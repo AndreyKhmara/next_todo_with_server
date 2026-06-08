@@ -3,7 +3,7 @@ import { ITask } from "@/typse/tasks";
 const baseUrl = "http://localhost:3001";
 
 export const getAllTodos = async (): Promise<ITask[]> => {
-  const res = await fetch(`${baseUrl}/tasks`, { cache: "no-store" });
+  const res = await fetch(`${baseUrl}/todos`, { cache: "no-store" });
   const todos = await res.json();
   return todos;
 };
@@ -32,17 +32,17 @@ export const editTodo = async (todo: ITask): Promise<ITask> => {
 
 export const checkTodo = async ({
   id,
-  isdone,
+  isCompleted,
 }: Omit<ITask, "text">): Promise<void> => {
   await fetch(`${baseUrl}/tasks/check/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ isdone }),
+    body: JSON.stringify({ isCompleted }),
   });
 };
 
 export const deleteTodo = async (id: string): Promise<void> => {
-  await fetch(`${baseUrl}/tasks/delete/${id}`, {
+  await fetch(`${baseUrl}/todos/${id}`, {
     method: "DELETE",
   });
 };
