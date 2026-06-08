@@ -5,7 +5,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const todoRouter = require('./routes/taskRouter');
 require('dotenv').config();
-
+//TODO use simple_flask_todo (https://github.com/AndreyKhmara/simple_flask_todo)
 const app = express();
 const PORT = process.env.PORT || 3001;
 app.use(cors({
