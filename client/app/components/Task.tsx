@@ -22,7 +22,7 @@ export const Task: React.FC<TaskProps> = ({ task }) => {
     e,
   ) => {
     e.preventDefault();
-    await editTodo({ id: task.id, text: taskToEdit, isdone: false });
+    await editTodo({ id: task.id, text: taskToEdit, isCompleted: false });
     setOpenModalEdit(false);
     router.refresh(); //need to refesh todo list after add todo
   };
@@ -37,7 +37,7 @@ export const Task: React.FC<TaskProps> = ({ task }) => {
     <tr key={task.id}>
       <td className="w-full ">
         <div className="flex gap-5 items-center">
-          <CheckBoxTask isdone={task.isdone} id={task.id} />
+          <CheckBoxTask isCompleted={task.isCompleted} id={task.id} />
           {task.text}
         </div>
       </td>
